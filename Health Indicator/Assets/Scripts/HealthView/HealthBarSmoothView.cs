@@ -4,13 +4,20 @@ using UnityEngine.UI;
 
 public class HealthBarSmoothView : MonoBehaviour
 {
-    [SerializeField] private Slider _healthSliderSmooth;
+    [SerializeField] private Slider _healthSlider;
     [SerializeField] private Health _health;
     [SerializeField] private float _smoothChangeSpeed = 20.0f;
     [SerializeField] private bool _byTime;
     [SerializeField] private float _smoothDuration = 0.5f;
 
     private Coroutine _coroutine;
+
+    private void Start()
+    {
+        _healthSlider.maxValue = _health.GetMaxHealth();
+        _healthSlider.minValue = 0;
+        UpdateHealth();
+    }
 
     public void UpdateHealth()
     {
@@ -37,13 +44,13 @@ public class HealthBarSmoothView : MonoBehaviour
 
         if (byTime) 
         {
-            float distance = Mathf.Abs(_healthSliderSmooth.value - target);
+            float distance = Mathf.Abs(_healthSlider.value - target);
             speed = distance / _smoothDuration;
         }
 
-        while (_healthSliderSmooth.value != target)
+        while (_healthSlider.value != target)
         {
-            _healthSliderSmooth.value = Mathf.MoveTowards(_healthSliderSmooth.value, target, Time.deltaTime * speed);
+            _healthSlider.value = Mathf.MoveTowards(_healthSlider.value, target, Time.deltaTime * speed);
 
             yield return null;
         }
