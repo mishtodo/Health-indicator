@@ -6,8 +6,6 @@ public class HealthBarSmoothView : MonoBehaviour
 {
     [SerializeField] private Slider _healthSlider;
     [SerializeField] private Health _health;
-    [SerializeField] private float _smoothChangeSpeed = 20.0f;
-    [SerializeField] private bool _byTime;
     [SerializeField] private float _smoothDuration = 0.5f;
 
     private Coroutine _coroutine;
@@ -22,12 +20,12 @@ public class HealthBarSmoothView : MonoBehaviour
     public void UpdateHealth()
     {
         StopCoroutine();
-        StartCoroutine(_health.GetCurrentHealth(), _byTime);
+        StartCoroutine(_health.GetCurrentHealth());
     }
 
-    public void StartCoroutine(float target, bool byTime)
+    public void StartCoroutine(float target)
     {
-        _coroutine = StartCoroutine(ChangeHealthSmoothly(target, byTime));
+        _coroutine = StartCoroutine(ChangeHealthSmoothly(target));
     }
 
     public void StopCoroutine()
@@ -38,15 +36,10 @@ public class HealthBarSmoothView : MonoBehaviour
         }
     }
 
-    private IEnumerator ChangeHealthSmoothly(float target, bool byTime)
+    private IEnumerator ChangeHealthSmoothly(float target)
     {
-        float speed = _smoothChangeSpeed;
-
-        if (byTime) 
-        {
-            float distance = Mathf.Abs(_healthSlider.value - target);
-            speed = distance / _smoothDuration;
-        }
+        float distance = Mathf.Abs(_healthSlider.value - target);
+        float speed = distance / _smoothDuration;
 
         while (_healthSlider.value != target)
         {

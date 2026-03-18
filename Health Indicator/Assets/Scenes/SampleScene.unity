@@ -1262,6 +1262,7 @@ GameObject:
   - component: {fileID: 1541864342}
   - component: {fileID: 1541864341}
   - component: {fileID: 1541864340}
+  - component: {fileID: 1541864343}
   m_Layer: 5
   m_Name: Add Health
   m_TagString: Untagged
@@ -1333,45 +1334,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1875737735}
-        m_TargetAssemblyTypeName: Health, Assembly-CSharp
-        m_MethodName: Heal
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 20
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 923376714}
-        m_TargetAssemblyTypeName: HealthViewText, Assembly-CSharp
-        m_MethodName: UpdateHealth
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1256352853}
-        m_TargetAssemblyTypeName: HealthViewBar, Assembly-CSharp
-        m_MethodName: UpdateHealth
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1426514811}
-        m_TargetAssemblyTypeName: HealthBarSmoothView, Assembly-CSharp
-        m_MethodName: UpdateHealth
+      - m_Target: {fileID: 1541864343}
+        m_TargetAssemblyTypeName: AddHealthButton, Assembly-CSharp
+        m_MethodName: AddHealth
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1419,6 +1384,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1541864338}
   m_CullTransparentMesh: 1
+--- !u!114 &1541864343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541864338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdc035ef510585c4db19dcde057b6a05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healValue: 20
+  _health: {fileID: 1875737735}
+  _healthTextView: {fileID: 923376714}
+  _healthBarView: {fileID: 1256352853}
+  _healthBarSmoothView: {fileID: 1426514811}
 --- !u!1 &1790298284
 GameObject:
   m_ObjectHideFlags: 0
@@ -1781,6 +1763,7 @@ GameObject:
   - component: {fileID: 1990356501}
   - component: {fileID: 1990356500}
   - component: {fileID: 1990356499}
+  - component: {fileID: 1990356502}
   m_Layer: 5
   m_Name: Reduce Health
   m_TagString: Untagged
@@ -1852,45 +1835,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1875737735}
-        m_TargetAssemblyTypeName: Health, Assembly-CSharp
-        m_MethodName: TakeDamage
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 10
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 923376714}
-        m_TargetAssemblyTypeName: HealthViewText, Assembly-CSharp
-        m_MethodName: UpdateHealth
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1256352853}
-        m_TargetAssemblyTypeName: HealthViewBar, Assembly-CSharp
-        m_MethodName: UpdateHealth
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1426514811}
-        m_TargetAssemblyTypeName: HealthBarSmoothView, Assembly-CSharp
-        m_MethodName: UpdateHealth
+      - m_Target: {fileID: 1990356502}
+        m_TargetAssemblyTypeName: ReduceHealthButton, Assembly-CSharp
+        m_MethodName: ReduceHealth
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1938,6 +1885,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1990356497}
   m_CullTransparentMesh: 1
+--- !u!114 &1990356502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990356497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3295f7aa25c82748be4b24553ff8791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageValue: 10
+  _health: {fileID: 1875737735}
+  _healthTextView: {fileID: 923376714}
+  _healthBarView: {fileID: 1256352853}
+  _healthBarSmoothView: {fileID: 1426514811}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
