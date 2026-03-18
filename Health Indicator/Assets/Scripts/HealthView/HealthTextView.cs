@@ -8,13 +8,23 @@ public class HealthTextView : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _healthText;
     [SerializeField] private Health _health;
 
-    private void Start()
+    private void OnEnable()
     {
-        UpdateHealth();
+        _health.Changed += UpdateHealth;        
     }
 
-    public void UpdateHealth()
+    private void OnDisable()
     {
-        _healthText.text = _health.GetCurrentHealth().ToString() + TextParser + _health.GetMaxHealth().ToString();
+        _health.Changed -= UpdateHealth;
+    }
+
+    private void Start()
+    {
+        UpdateHealth(_health.MaxHealth);
+    }
+
+    public void UpdateHealth(int currentHealth)
+    {
+        _healthText.text = currentHealth.ToString() + TextParser + _health.MaxHealth.ToString();
     }
 }

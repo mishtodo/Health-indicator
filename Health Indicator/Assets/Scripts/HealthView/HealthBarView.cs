@@ -6,15 +6,25 @@ public class HealthBarView : MonoBehaviour
     [SerializeField] private Slider _healthSlider;
     [SerializeField] private Health _health;
 
-    private void Start()
+    private void OnEnable()
     {
-        _healthSlider.maxValue = _health.GetMaxHealth();
-        _healthSlider.minValue = 0;
-        UpdateHealth();
+        _health.Changed += UpdateHealth;
     }
 
-    public void UpdateHealth()
+    private void OnDisable()
     {
-        _healthSlider.value = _health.GetCurrentHealth();
+        _health.Changed -= UpdateHealth;
+    }
+
+    private void Start()
+    {
+        _healthSlider.maxValue = _health.MaxHealth;
+        _healthSlider.minValue = 0;
+        UpdateHealth(_health.MaxHealth);
+    }
+
+    public void UpdateHealth(int currentHealth)
+    {
+        _healthSlider.value = currentHealth;
     }
 }

@@ -11,8 +11,5 @@ public class AddHealthButton : MonoBehaviour
     public void AddHealth()
     {
         _health.Heal(_healValue);
-        _healthTextView.UpdateHealth();
-        _healthBarSmoothView.UpdateHealth();
-        _healthBarView.UpdateHealth();
     }
 }

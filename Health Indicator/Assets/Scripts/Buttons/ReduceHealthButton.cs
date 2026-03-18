@@ -11,8 +11,5 @@ public class ReduceHealthButton : MonoBehaviour
     public void ReduceHealth()
     {
         _health.TakeDamage(_damageValue);
-        _healthTextView.UpdateHealth();
-        _healthBarSmoothView.UpdateHealth();
-        _healthBarView.UpdateHealth();
     }
 }

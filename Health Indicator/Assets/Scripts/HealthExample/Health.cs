@@ -1,9 +1,14 @@
+using System;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
     [SerializeField] private int _maxHealth = 100;
     [SerializeField] private int _currentHealth;
+
+    public int MaxHealth => _maxHealth;
+
+    public event Action<int> Changed;
 
     private void Start()
     {
@@ -16,6 +21,7 @@ public class Health : MonoBehaviour
         {
             _currentHealth -= damage;
             _currentHealth = Mathf.Max(_currentHealth, 0);
+            Changed?.Invoke(_currentHealth);
 
             if (_currentHealth <= 0)
             {
@@ -30,16 +36,7 @@ public class Health : MonoBehaviour
         {
             _currentHealth += heal;
             _currentHealth = Mathf.Min(_currentHealth, _maxHealth);
+            Changed?.Invoke(_currentHealth);
         }
-    }
-
-    public int GetMaxHealth() 
-    {
-        return _maxHealth;
-    }
-
-    public int GetCurrentHealth() 
-    {
-        return _currentHealth;
     }
 }

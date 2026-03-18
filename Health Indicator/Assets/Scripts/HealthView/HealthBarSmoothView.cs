@@ -10,17 +10,27 @@ public class HealthBarSmoothView : MonoBehaviour
 
     private Coroutine _coroutine;
 
-    private void Start()
+    private void OnEnable()
     {
-        _healthSlider.maxValue = _health.GetMaxHealth();
-        _healthSlider.minValue = 0;
-        UpdateHealth();
+        _health.Changed += UpdateHealth;
     }
 
-    public void UpdateHealth()
+    private void OnDisable()
+    {
+        _health.Changed -= UpdateHealth;
+    }
+
+    private void Start()
+    {
+        _healthSlider.maxValue = _health.MaxHealth;
+        _healthSlider.minValue = 0;
+        UpdateHealth(_health.MaxHealth);
+    }
+
+    public void UpdateHealth(int currentHealth)
     {
         StopCoroutine();
-        StartCoroutine(_health.GetCurrentHealth());
+        StartCoroutine(currentHealth);
     }
 
     public void StartCoroutine(float target)
