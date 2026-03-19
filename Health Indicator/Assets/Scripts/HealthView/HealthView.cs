@@ -14,7 +14,7 @@ public abstract class HealthView : MonoBehaviour
         _health.Changed -= UpdateHealth;
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         UpdateHealth(_health.Max);
     }

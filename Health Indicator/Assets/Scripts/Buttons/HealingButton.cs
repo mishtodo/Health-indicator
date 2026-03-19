@@ -1,7 +1,4 @@
-using UnityEngine;
-using UnityEngine.UI;
-
-public class AddHealthButton : HealthButton
+public class HealingButton : HealthButton
 {
     private void OnEnable()
     {

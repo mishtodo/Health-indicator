@@ -1,20 +1,11 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class HealthBarSmoothView : HealthView
+public class HealthBarSmoothView : HealthViewSlider
 {
-    [SerializeField] private Slider _healthSlider;
     [SerializeField] private float _smoothDuration = 0.5f;
 
     private Coroutine _coroutine;
-
-    private void Start()
-    {
-        _healthSlider.maxValue = _health.Max;
-        _healthSlider.minValue = 0; 
-        UpdateHealth(_health.Max);
-    }
 
     public override void UpdateHealth(int currentHealth)
     {

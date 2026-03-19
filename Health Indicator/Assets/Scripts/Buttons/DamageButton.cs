@@ -1,7 +1,4 @@
-using UnityEngine;
-using UnityEngine.UI;
-
-public class ReduceHealthButton : HealthButton
+public class DamageButton : HealthButton
 {
     private void OnEnable()
     {
