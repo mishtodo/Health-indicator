@@ -1,15 +1,20 @@
 using UnityEngine;
+using UnityEngine.UI;
 
-public class AddHealthButton : MonoBehaviour
+public class AddHealthButton : HealthButton
 {
-    [SerializeField] int _healValue = 20;
-    [SerializeField] Health _health;
-    [SerializeField] HealthTextView _healthTextView;
-    [SerializeField] HealthBarView _healthBarView;
-    [SerializeField] HealthBarSmoothView _healthBarSmoothView;
+    private void OnEnable()
+    {
+        _button.onClick.AddListener(AddHealth);
+    }
+
+    private void OnDisable()
+    {
+        _button.onClick.RemoveListener(AddHealth);
+    }
 
     public void AddHealth()
     {
-        _health.Heal(_healValue);
+        _health.TakeHeal(_healthChangeValue);
     }
 }

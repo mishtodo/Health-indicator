@@ -797,8 +797,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26bd6b2deea730e48b09fb30c20d98b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthText: {fileID: 923376712}
   _health: {fileID: 1875737735}
+  _healthText: {fileID: 923376712}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1247,8 +1247,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthSlider: {fileID: 1426514810}
   _health: {fileID: 1875737735}
-  _smoothChangeSpeed: 20
-  _byTime: 1
   _smoothDuration: 0.5
 --- !u!1 &1541864338
 GameObject:
@@ -1396,11 +1394,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdc035ef510585c4db19dcde057b6a05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healValue: 20
+  _healthChangeValue: 20
   _health: {fileID: 1875737735}
   _healthTextView: {fileID: 923376714}
   _healthBarView: {fileID: 1256352853}
   _healthBarSmoothView: {fileID: 1426514811}
+  _button: {fileID: 1541864340}
 --- !u!1 &1790298284
 GameObject:
   m_ObjectHideFlags: 0
@@ -1734,8 +1733,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d390b0e4bb99234fb869d092268b2ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
-  _currentHealth: 0
+  _max: 100
+  _current: 0
 --- !u!4 &1875737736
 Transform:
   m_ObjectHideFlags: 0
@@ -1897,11 +1896,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3295f7aa25c82748be4b24553ff8791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageValue: 10
+  _healthChangeValue: 10
   _health: {fileID: 1875737735}
   _healthTextView: {fileID: 923376714}
   _healthBarView: {fileID: 1256352853}
   _healthBarSmoothView: {fileID: 1426514811}
+  _button: {fileID: 1990356499}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
