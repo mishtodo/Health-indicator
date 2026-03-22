@@ -2,21 +2,21 @@ using UnityEngine;
 
 public abstract class HealthView : MonoBehaviour
 {
-    [SerializeField] protected Health _health;
+    [SerializeField] protected Health Health;
 
     private void OnEnable()
     {
-        _health.Changed += UpdateHealth;
+        Health.Changed += UpdateHealth;
     }
 
     private void OnDisable()
     {
-        _health.Changed -= UpdateHealth;
+        Health.Changed -= UpdateHealth;
     }
 
     protected virtual void Start()
     {
-        UpdateHealth(_health.Max);
+        UpdateHealth(Health.Max);
     }
 
     public virtual void UpdateHealth(int currentHealth) { }

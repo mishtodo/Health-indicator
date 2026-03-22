@@ -2,16 +2,16 @@ public class HealingButton : HealthButton
 {
     private void OnEnable()
     {
-        _button.onClick.AddListener(AddHealth);
+        Button.onClick.AddListener(AddHealth);
     }
 
     private void OnDisable()
     {
-        _button.onClick.RemoveListener(AddHealth);
+        Button.onClick.RemoveListener(AddHealth);
     }
 
     public void AddHealth()
     {
-        _health.TakeHeal(_healthChangeValue);
+        Health.TakeHeal(HealthChangeValue);
     }
 }

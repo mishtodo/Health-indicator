@@ -9,6 +9,6 @@ public class HealthTextView : HealthView
 
     public override void UpdateHealth(int currentHealth)
     {
-        _healthText.text = currentHealth.ToString() + TextParser + _health.Max.ToString();
+        _healthText.text = currentHealth.ToString() + TextParser + Health.Max.ToString();
     }
 }

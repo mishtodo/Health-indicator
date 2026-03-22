@@ -28,12 +28,12 @@ public class HealthBarSmoothView : HealthViewSlider
 
     private IEnumerator ChangeHealthSmoothly(float target)
     {
-        float distance = Mathf.Abs(_healthSlider.value - target);
+        float distance = Mathf.Abs(HealthSlider.value - target);
         float speed = distance / _smoothDuration;
 
-        while (_healthSlider.value != target)
+        while (HealthSlider.value != target)
         {
-            _healthSlider.value = Mathf.MoveTowards(_healthSlider.value, target, Time.deltaTime * speed);
+            HealthSlider.value = Mathf.MoveTowards(HealthSlider.value, target, Time.deltaTime * speed);
 
             yield return null;
         }
